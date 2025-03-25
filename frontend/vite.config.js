@@ -9,7 +9,11 @@ export default defineConfig({
   ],
   base: '/', // Ensure correct routing
   build: {
-    outDir: 'dist'
+    outDir: 'dist', // Ensure correct output directory
+    target: 'esnext',
+  },
+  server: {
+    port: 5173
   }
 
 })
