@@ -4,15 +4,16 @@ const port = 3000
 import db from './db.js'
 import productRouter from './routes/productRoutes.js'
 import bodyParser from "body-parser";
-
+import cors from 'cors'
 
 import dotenv from 'dotenv'
 dotenv.config()
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-  console.log("get all products");
+  res.send('Hello World!')  
   
 })
 

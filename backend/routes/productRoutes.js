@@ -11,17 +11,16 @@ const upload = multer({ storage });
 router.get('/', async (req, res) => {
     try {
         const product=await Product.find({})
-        console.log("Product get");
+        console.log("Product all get");
         
         res.status(200).json(product)
     } catch (error) {
         res.status(500).json({ message: "Error fetching data", error });        
     }
-    
 })
 
 // Add the product
-router.post('/create',upload.array("images", 2),async (req, res) => {
+router.post('/create',upload.array("images", 4),async (req, res) => {
     try {
         const {sku,name,price}=req.body
         console.log(sku,name,price);
